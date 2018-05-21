@@ -23,7 +23,7 @@ public class MaxCut {
 		GRBLinExpr constraint1;
 		GRBLinExpr constraint2;
 		
-		//x[i] true if in cut false if not 
+		//x[i] true if vertex in cut false if not 
 		GRBVar[] x = new GRBVar[nVertices];
 		for (int i = 0; i <nVertices; i++) {
 			 x[i] = model.addVar(0.0, 1.0, i, GRB.BINARY, "x[" + i + "]");
@@ -66,7 +66,7 @@ public class MaxCut {
 		for (int i = 0; i <nEdges; i++) {
 			  System.out.println(y[i].get(GRB.StringAttr.VarName) +
 	                  " " + y[i].get(GRB.DoubleAttr.X));
-			}
+		}
 		
 		model.dispose();
 		env.dispose();
