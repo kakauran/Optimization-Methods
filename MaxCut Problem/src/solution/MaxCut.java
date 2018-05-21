@@ -3,7 +3,8 @@ package solution;
 import gurobi.*;
 
 public class MaxCut {
-	public static void main(String[] args) {
+	public static void maximumCut(int edges[][],int weights[], int nVertices) {
+		//edge(origin,destination), edge weights, number of vertices
 	try {
 
 		GRBEnv env = new GRBEnv("maxcut.log");
@@ -11,12 +12,6 @@ public class MaxCut {
 		
 		model.set(GRB.StringAttr.ModelName, "MaxCut");
 		
-		//edge(origin,destination)
-		int edges[][]  = new int [][] {{1,2},{2,3},{3,5},{4,1},{5,4},{4,2}};
-		//edge weights
-		int weights[] =  new int [] {2, 1, 4, 3, 2, 4};
-		//number of vertices
-		int nVertices = 5;
 		//number of edges
 		int nEdges = edges.length;
 		
