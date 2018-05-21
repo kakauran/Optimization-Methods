@@ -6,7 +6,6 @@ public class MaxCut {
 	public static void maximumCut(int edges[][],int weights[], int nVertices) {
 		//edge(origin,destination), edge weights, number of vertices
 	try {
-
 		GRBEnv env = new GRBEnv("maxcut.log");
 		GRBModel model = new GRBModel(env);
 		
@@ -45,11 +44,9 @@ public class MaxCut {
 		for (int i = 0; i <nEdges; i++) {
 			incut.addTerm(weights[i], y[i]);
 		}
-		
 
 		model.setObjective(incut,GRB.MAXIMIZE);	
 		model.optimize();
-		
 		
 		System.out.println("Cut Weight:" + " " + incut.getValue());
 		
